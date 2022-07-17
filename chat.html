@@ -34,9 +34,14 @@
         newMessage.classList.add("chat-line")
         
         var username = document.createElement("span");
+        if (extra.userBadges["broadcaster"] == 1){
+            var broadcasterBadge = document.createElement("img");
+            broadcasterBadge.src = "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/2";
+            username.append(broadcasterBadge);
+        }
         if (extra.userBadges["moderator"] == 1){
             var modBadge = document.createElement("img");
-            modBadge.src = "img/mod.png";
+            modBadge.src = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2";
             username.append(modBadge);
         }
         username.classList.add("username");
