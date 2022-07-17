@@ -19,6 +19,11 @@ body {
     margin-right: 5px;
 }
 
+.message .emote {
+    width: 25px;
+}
+
+
 /* Animations */
 
 @keyframes fadeIn {
