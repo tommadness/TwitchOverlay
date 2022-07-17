@@ -13,6 +13,7 @@
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const twitchUser = urlParams.get('user');
+    const debug = urlParams.get('debug');
     var link = document.createElement("link");
     link.href=`css/${twitchUser}.css`;
     link.type = "text/css";
@@ -62,7 +63,12 @@
         chat.append(newMessage);
 
     }
-    ComfyJS.Init(twitchUser);
+    if (debug){
+        ComfyJS.Init("Tommadness");
+    }
+    else {
+        ComfyJS.Init(twitchUser);
+    }
 
 
 </script>
