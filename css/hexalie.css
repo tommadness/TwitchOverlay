@@ -30,6 +30,7 @@
     min-width: 200px;
     border-radius: 5px;
     color: white;
+    box-shadow:3px 3px rgba(175,175,175,.7);
 }
 
 .badges img {
