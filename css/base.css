@@ -1,0 +1,31 @@
+body {
+    background-color: rgba(0,0,0,0);
+    overflow: hidden;
+}
+
+#chat::-webkit-scrollbar {
+    display: none;
+}
+
+#chat {
+    padding-top: 5px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.username img {
+    width: 17px;
+    margin-right: 5px;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

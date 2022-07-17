@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch chat</title>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <script src="js/common.js"></script>
+</head>
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const twitchUser = urlParams.get('user');
+    var link = document.createElement("link");
+    link.href=`css/${twitchUser}.css`;
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.media = "screen,print";
+
+    document.getElementsByTagName("head")[0].appendChild(link)
+</script>
+<body>
+    <div id="chat">
+    </div>
+</body>
+<script>
+
+    var chat = document.querySelector("#chat");
+
+    ComfyJS.onChat = (user, message, flags, self, extra) => {
+        var newMessage = document.createElement("div");
+        newMessage.classList.add("chat-line")
+        
+        var username = document.createElement("span");
+        if (extra.userBadges["moderator"] == 1){
+            var modBadge = document.createElement("img");
+            modBadge.src = "img/mod.png";
+            username.append(modBadge);
+        }
+        username.classList.add("username");
+        username.style.backgroundColor = extra.userColor;
+        username.style.color = textColorContrast(extra.userColor);
+        username.append(`${user}`);
+
+        var messageContent = document.createElement("span");
+        messageContent.classList.add("message");
+        messageContent.innerText = `${message}`;
+
+        newMessage.append(username);
+        newMessage.append(messageContent);
+        chat.append(newMessage);
+
+    }
+    ComfyJS.Init(twitchUser);
+
+
+</script>
+</html>
