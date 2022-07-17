@@ -45,7 +45,7 @@ function hexToRgb(hex) {
 
         stringReplacements.push({
             stringToReplace: stringToReplace,
-            replacement: `<img class="emote" src="https://static-cdn.jtvnw.net/emoticons/v1/${id}/3.0">`
+            replacement: `<img class="emote" src="https://static-cdn.jtvnw.net/emoticons/v2/${id}/default/dark/2.0">`
         })
     })
 
