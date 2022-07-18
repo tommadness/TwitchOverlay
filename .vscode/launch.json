@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Hexalie Development",
+        "file": "${workspaceFolder}/chat.html?user=hexalie&debug=true"
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "SanfordAnsonious Development",
+        "file": "${workspaceFolder}/chat.html?user=sanfordansonious&debug=true"
+      }
+    ]
+  }
