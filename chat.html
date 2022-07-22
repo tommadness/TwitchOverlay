@@ -33,6 +33,8 @@
     ComfyJS.onChat = (user, message, flags, self, extra) => {
         var newMessage = document.createElement("div");
         newMessage.classList.add("chat-line")
+        newMessage.id = extra.id;
+        newMessage.setAttribute("data-user", extra.username);
         
         console.log(extra);
 
@@ -67,6 +69,22 @@
         chat.append(newMessage);
 
     }
+
+    ComfyJS.onMessageDeleted = (id, extra) => {
+        var deletedMessage = document.querySelector(`#${id}`);
+        console.log(deletedMessage);
+        if (deletedMessage !== null){
+            deletedMessage.remove();
+        }
+    }
+
+    ComfyJS.onTimeout = (timedOutUsername, durationInSeconds, extra) => {
+        var messages = document.querySelectorAll(`[data-user*="${timedOutUsername}"]`);
+        if (messages !== null) {
+            messages.forEach(message => message.remove());
+        }
+    }
+
     if (debug){
         ComfyJS.Init("Tommadness");
     }
