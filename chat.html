@@ -78,8 +78,12 @@
         }
     }
 
-    ComfyJS.onTimeout = (timedOutUsername, durationInSeconds, extra) => {
-        var messages = document.querySelectorAll(`[data-user*="${timedOutUsername}"]`);
+    ComfyJS.onTimeout = (timedOutUsername, durationInSeconds, extra) => deleteAllMessages(timedOutUsername);
+
+    ComfyJS.onBan = (bannedUsername, extra) => deleteAllMessages(bannedUsername);
+
+    function deleteAllMessages(username) {
+        var messages = document.querySelectorAll(`[data-user*="${username}"]`);
         if (messages !== null) {
             messages.forEach(message => message.remove());
         }
