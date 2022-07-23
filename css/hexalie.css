@@ -1,3 +1,8 @@
+#chat {
+    position: absolute;
+    bottom: 0%;
+}
+
 #chat div:last-of-type {
     animation-name: fadeIn;
     animation-duration: 0.3s;
