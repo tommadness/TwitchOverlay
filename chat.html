@@ -71,7 +71,7 @@
     }
 
     ComfyJS.onMessageDeleted = (id, extra) => {
-        var deletedMessage = document.querySelector(`#${id}`);
+        var deletedMessage = document.querySelector(`[id=${id}]`);
         console.log(deletedMessage);
         if (deletedMessage !== null){
             deletedMessage.remove();
