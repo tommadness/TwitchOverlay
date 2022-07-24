@@ -19,7 +19,7 @@
     padding-right: 15px;
     border-radius: 5px;
     font-weight:bold;
-    background-color: purple!important;
+    background-color: #64a2a2!important;
     color: white!important;
 }
 
@@ -34,7 +34,7 @@
     min-width: 200px;
     border-radius: 5px;
     color: white;
-    box-shadow: 3px 3px rgb(128 0 128 / 70%);
+    box-shadow: 3px 3px rgb(100 162 162 / 70%);
 }
 
 .badges img {
