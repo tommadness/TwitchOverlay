@@ -1,0 +1,44 @@
+#chat {
+    position: absolute;
+    bottom: 0%;
+}
+
+#chat div:last-of-type {
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+}
+
+.chat-line {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.username {
+    padding: 5px 10px;
+    padding-right: 15px;
+    border-radius: 5px;
+    font-weight:bold;
+    background-color: purple!important;
+    color: white!important;
+}
+
+.message {
+    display:block;
+    margin-left:10px;
+    margin-top: -5px;
+    padding: 10px;
+    padding-top: 15px;
+    background-color: rgba(70,70,70,.7);
+    width: fit-content;
+    min-width: 200px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 3px 3px rgb(128 0 128 / 70%);
+}
+
+.badges img {
+    size:20px;
+}
+
