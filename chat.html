@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twitch chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
     <script src="https://unpkg.com/twitch-emoji@^0.2.0/dist/twitchemoji.min.js"></script>
     <link rel="stylesheet" href="css/base.css">
@@ -67,6 +68,7 @@
         newMessage.append(username);
         newMessage.append(messageContent);
         chat.append(newMessage);
+        $(`#${newMessage.id}`).delay(30000).fadeOut(800);
 
     }
 
