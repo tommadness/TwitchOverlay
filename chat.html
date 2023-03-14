@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,13 +17,14 @@
     const twitchUser = urlParams.get('user');
     const debug = urlParams.get('debug');
     var link = document.createElement("link");
-    link.href=`css/${twitchUser}.css`;
+    link.href = `css/${twitchUser}.css`;
     link.type = "text/css";
     link.rel = "stylesheet";
     link.media = "screen,print";
 
     document.getElementsByTagName("head")[0].appendChild(link)
 </script>
+
 <body>
     <div id="chat">
     </div>
@@ -36,24 +38,24 @@
         newMessage.classList.add("chat-line")
         newMessage.id = extra.id;
         newMessage.setAttribute("data-user", extra.username);
-        
+
         console.log(extra);
 
         var username = document.createElement("span");
-        if (extra.userBadges !== null){
-            if ("broadcaster" in extra.userBadges & extra.userBadges["broadcaster"] == 1){
+        if (extra.userBadges !== null) {
+            if ("broadcaster" in extra.userBadges & extra.userBadges["broadcaster"] == 1) {
                 var broadcasterBadge = document.createElement("img");
                 broadcasterBadge.src = "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/2";
                 username.append(broadcasterBadge);
-            } 
-            if (extra.userBadges["moderator"] == 1){
+            }
+            if (extra.userBadges["moderator"] == 1) {
                 var modBadge = document.createElement("img");
                 modBadge.src = "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/2";
                 username.append(modBadge);
             }
         }
         username.classList.add("username");
-        if (extra.userColor !== null){
+        if (extra.userColor !== null) {
             username.style.backgroundColor = extra.userColor;
             username.style.color = textColorContrast(extra.userColor);
         }
@@ -68,14 +70,16 @@
         newMessage.append(username);
         newMessage.append(messageContent);
         chat.append(newMessage);
-        $(`#${newMessage.id}`).delay(30000).fadeOut(800);
+        if (twitchUser != "sanfordansonious") {
+            $(`#${newMessage.id}`).delay(30000).fadeOut(800);
+        }
 
     }
 
     ComfyJS.onMessageDeleted = (id, extra) => {
         var deletedMessage = document.querySelector(`[id=${id}]`);
         console.log(deletedMessage);
-        if (deletedMessage !== null){
+        if (deletedMessage !== null) {
             deletedMessage.remove();
         }
     }
@@ -91,7 +95,7 @@
         }
     }
 
-    if (debug){
+    if (debug) {
         ComfyJS.Init("Tommadness");
     }
     else {
@@ -100,4 +104,5 @@
 
 
 </script>
+
 </html>
